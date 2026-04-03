@@ -88,10 +88,45 @@
             overflow: hidden;
             transform: scale(0.95);
             transition: transform 0.3s ease;
+            position: relative;
         }
 
         .modal-overlay.active .modal-card {
             transform: scale(1);
+        }
+
+        /* Botão de fechar (X) */
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            z-index: 10;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .modal-close:active {
+            transform: scale(0.95);
+        }
+
+        .modal-close svg {
+            width: 16px;
+            height: 16px;
+            stroke: #FFFFFF;
+            stroke-width: 2;
         }
 
         .modal-header {
@@ -605,9 +640,16 @@
     </style>
 </head>
 <body>
-    <!-- MODAL - Botão Solicitar Pedido com link do WhatsApp -->
+    <!-- MODAL - Com botão X para fechar -->
     <div class="modal-overlay" id="welcomeModal">
         <div class="modal-card">
+            <!-- Botão X para fechar -->
+            <div class="modal-close" id="closeModalBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </div>
             <div class="modal-header">
                 <div class="modal-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
@@ -774,11 +816,12 @@
             const WHATSAPP_LINK = "https://chat.whatsapp.com/JpQUxXzvCIR8icJ0FWAoQh?mode=gi_t";
             const REGISTRATION_URL = "https://media1.placard.co.mz/redirect.aspx?pid=5413&bid=1690";
             
-            // ================= MODAL - APARECE APÓS 3 SEGUNDOS =================
+            // ================= MODAL =================
             const modal = document.getElementById('welcomeModal');
             const solicitarBtn = document.getElementById('solicitarBtn');
+            const closeModalBtn = document.getElementById('closeModalBtn');
             
-            // Mostra o modal após 3 segundos (3000 milissegundos)
+            // Mostra o modal após 3 segundos
             setTimeout(() => {
                 modal.classList.add('active');
                 document.body.classList.add('modal-active');
@@ -789,7 +832,13 @@
             function closeModal() {
                 modal.classList.remove('active');
                 document.body.classList.remove('modal-active');
+                console.log('❌ Modal fechado');
             }
+            
+            // Botão X - fecha o modal
+            closeModalBtn.addEventListener('click', function() {
+                closeModal();
+            });
             
             // Botão "Solicitar Pedido" - abre WhatsApp e fecha modal
             solicitarBtn.addEventListener('click', function() {
