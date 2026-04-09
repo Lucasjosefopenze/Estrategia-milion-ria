@@ -83,7 +83,7 @@
             width: 100%;
             background: linear-gradient(135deg, #12122A 0%, #0A0A18 100%);
             border-radius: 32px;
-            border: 1px solid rgba(107, 127, 255, 0.3);
+            border: 1px solid rgba(37, 211, 102, 0.3);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             overflow: hidden;
             transform: scale(0.95);
@@ -95,7 +95,6 @@
             transform: scale(1);
         }
 
-        /* Botão de fechar (X) */
         .modal-close {
             position: absolute;
             top: 16px;
@@ -130,16 +129,16 @@
         }
 
         .modal-header {
-            background: linear-gradient(135deg, rgba(107, 127, 255, 0.12), rgba(75, 59, 255, 0.05));
+            background: linear-gradient(135deg, rgba(37, 211, 102, 0.12), rgba(18, 140, 126, 0.05));
             padding: 18px 20px 14px;
             text-align: center;
-            border-bottom: 1px solid rgba(107, 127, 255, 0.15);
+            border-bottom: 1px solid rgba(37, 211, 102, 0.2);
         }
 
         .modal-icon {
             width: 48px;
             height: 48px;
-            background: linear-gradient(135deg, #6B7FFF, #4B3BFF);
+            background: linear-gradient(135deg, #25D366, #128C7E);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -154,8 +153,8 @@
         }
 
         @keyframes pulseIcon {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(107, 127, 255, 0.6); }
-            50% { transform: scale(1.05); box-shadow: 0 0 0 12px rgba(107, 127, 255, 0); }
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+            50% { transform: scale(1.05); box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
         }
 
         .modal-header h3 {
@@ -167,7 +166,7 @@
 
         .modal-header p {
             font-size: 0.7rem;
-            color: #8B9CFF;
+            color: #25D366;
         }
 
         .modal-body {
@@ -176,15 +175,15 @@
         }
 
         .modal-message {
-            background: rgba(107, 127, 255, 0.06);
+            background: rgba(37, 211, 102, 0.06);
             border-radius: 16px;
             padding: 14px;
             margin-bottom: 20px;
-            border: 1px solid rgba(107, 127, 255, 0.1);
+            border: 1px solid rgba(37, 211, 102, 0.15);
         }
 
         .modal-message .highlight {
-            color: #6B7FFF;
+            color: #25D366;
             font-weight: 700;
             font-size: 0.9rem;
             margin-bottom: 8px;
@@ -196,7 +195,10 @@
             line-height: 1.4;
         }
 
-        /* Botão do modal com efeito chamativo */
+        .modal-message .text strong {
+            color: #25D366;
+        }
+
         .modal-btn {
             width: 100%;
             background: linear-gradient(135deg, #25D366, #128C7E);
@@ -328,7 +330,7 @@
         .overlay-icon {
             width: 55px;
             height: 55px;
-            background: linear-gradient(135deg, #6B7FFF, #4B3BFF);
+            background: linear-gradient(135deg, #25D366, #128C7E);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -350,7 +352,7 @@
         }
 
         .overlay-btn {
-            background: linear-gradient(135deg, #6B7FFF, #4B3BFF);
+            background: linear-gradient(135deg, #25D366, #128C7E);
             border: none;
             border-radius: 40px;
             padding: 12px 28px;
@@ -364,6 +366,155 @@
         .content {
             padding: 28px 24px 36px;
             background: #05050A;
+        }
+
+        /* BOTÃO REGISTRAR - EFEITO DE PULSAÇÃO FORTE */
+        .btn-primary {
+            width: 100%;
+            background: linear-gradient(135deg, #6B7FFF 0%, #4B3BFF 100%);
+            border: none;
+            border-radius: 60px;
+            padding: 18px 28px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(75, 59, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 28px;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:active {
+            transform: scale(0.98);
+        }
+
+        /* EFEITO DE PULSAÇÃO FORTE - MAIS CHAMATIVO */
+        .btn-primary.pulsar-forte {
+            animation: pulseStrong 0.8s ease-in-out infinite !important;
+            box-shadow: 0 0 0 0 rgba(107, 127, 255, 0.7);
+            transform: scale(1);
+        }
+
+        @keyframes pulseStrong {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(107, 127, 255, 0.7);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 12px rgba(107, 127, 255, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(107, 127, 255, 0);
+            }
+        }
+
+        /* Efeito de brilho adicional */
+        .btn-primary.pulsar-forte::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            opacity: 0;
+            animation: glowFlash 0.8s ease-in-out infinite;
+        }
+
+        @keyframes glowFlash {
+            0% { opacity: 0; }
+            50% { opacity: 0.5; }
+            100% { opacity: 0; }
+        }
+
+        .btn-primary.highlight {
+            animation: pulseStrong 0.8s ease-in-out infinite !important;
+            box-shadow: 0 0 0 0 rgba(107, 127, 255, 0.7);
+            background: linear-gradient(135deg, #8B9FFF, #6B5BFF);
+        }
+
+        .instructions-box {
+            background: linear-gradient(135deg, rgba(107, 127, 255, 0.1), rgba(75, 59, 255, 0.05));
+            border-radius: 24px;
+            padding: 20px;
+            margin-bottom: 28px;
+            border: 1px solid rgba(107, 127, 255, 0.2);
+        }
+
+        .instructions-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #6B7FFF;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .step-number {
+            width: 28px;
+            height: 28px;
+            background: rgba(107, 127, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #6B7FFF;
+            flex-shrink: 0;
+        }
+
+        .step-text {
+            flex: 1;
+            color: #E0E0FF;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        .step-text strong {
+            color: #25D366;
+        }
+
+        .highlight-deposit {
+            background: rgba(37, 211, 102, 0.15);
+            padding: 12px;
+            border-radius: 16px;
+            text-align: center;
+            margin: 12px 0 16px 0;
+            border: 1px solid rgba(37, 211, 102, 0.3);
+        }
+
+        .highlight-deposit span {
+            color: #25D366;
+            font-weight: 700;
+            font-size: 1rem;
         }
 
         .video-locked-banner {
@@ -439,53 +590,9 @@
             font-weight: 400;
         }
 
-        .benefits-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            margin-bottom: 32px;
-        }
-
-        .benefit-item {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            background: rgba(255, 255, 255, 0.02);
-            padding: 14px 18px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.04);
-        }
-
-        .benefit-icon {
-            width: 40px;
-            height: 40px;
-            background: rgba(107, 127, 255, 0.1);
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .benefit-text {
-            flex: 1;
-        }
-
-        .benefit-title {
-            font-weight: 600;
-            color: #FFFFFF;
-            font-size: 0.9rem;
-            margin-bottom: 4px;
-        }
-
-        .benefit-sub {
-            font-size: 0.75rem;
-            color: #7A7AA0;
-        }
-
-        .btn-primary {
+        .btn-whatsapp {
             width: 100%;
-            background: linear-gradient(135deg, #6B7FFF 0%, #4B3BFF 100%);
+            background: linear-gradient(135deg, #25D366, #128C7E);
             border: none;
             border-radius: 60px;
             padding: 18px 28px;
@@ -496,12 +603,17 @@
             color: white;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 8px 24px rgba(75, 59, 255, 0.3);
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
             position: relative;
             overflow: hidden;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
 
-        .btn-primary::before {
+        .btn-whatsapp::before {
             content: '';
             position: absolute;
             top: 0;
@@ -512,21 +624,20 @@
             transition: left 0.5s ease;
         }
 
-        .btn-primary:hover::before {
+        .btn-whatsapp:hover::before {
             left: 100%;
         }
 
-        .btn-primary:active {
+        .btn-whatsapp:active {
             transform: scale(0.98);
         }
 
-        .btn-primary.highlight {
-            animation: btnPulse 0.6s ease-in-out 3;
-            box-shadow: 0 0 0 4px rgba(107, 127, 255, 0.4), 0 8px 30px rgba(75, 59, 255, 0.6);
-            background: linear-gradient(135deg, #7B8FFF, #5B4BFF);
+        .btn-whatsapp.highlight {
+            animation: btnPulseGreen 0.6s ease-in-out 3;
+            box-shadow: 0 0 0 4px rgba(37, 211, 102, 0.4), 0 8px 30px rgba(37, 211, 102, 0.6);
         }
 
-        @keyframes btnPulse {
+        @keyframes btnPulseGreen {
             0% { transform: scale(1); }
             50% { transform: scale(1.03); }
             100% { transform: scale(1); }
@@ -629,21 +740,25 @@
             h1 {
                 font-size: 1.6rem;
             }
-            .btn-primary {
+            .btn-primary, .btn-whatsapp {
                 padding: 16px 24px;
                 font-size: 1rem;
             }
             .stat-value {
                 font-size: 1.2rem;
             }
+            @keyframes pulseStrong {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.03); }
+                100% { transform: scale(1); }
+            }
         }
     </style>
 </head>
 <body>
-    <!-- MODAL - Com botão X para fechar -->
+    <!-- MODAL -->
     <div class="modal-overlay" id="welcomeModal">
         <div class="modal-card">
-            <!-- Botão X para fechar -->
             <div class="modal-close" id="closeModalBtn">
                 <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
                     <line x1="18" y1="6" x2="6" y2="18"/>
@@ -653,22 +768,22 @@
             <div class="modal-header">
                 <div class="modal-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"/>
-                        <polygon points="10 8 16 12 10 16 10 8"/>
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
                     </svg>
                 </div>
-                <h3>Assista o vídeo primeiro</h3>
-                <p>Solicite seu pedido na comunidade para continuar</p>
+                <h3>Solicitar Pedido</h3>
+                <p>Grupo VIP no WhatsApp</p>
             </div>
             <div class="modal-body">
                 <div class="modal-message">
-                    <div class="highlight">▶ Você precisa solicitar seu pedido</div>
+                    <div class="highlight">📋 ATENÇÃO!</div>
                     <div class="text">
-                        solicitar seu pedido na nossa comunidade e garantir seu acesso.
+                        Para receber sua <strong>APLICAÇÃO 100% GRÁTIS</strong>, você precisa:<br><br>
+                        Clicar no botão abaixo e <strong>solicitar seu pedido no WhatsApp</strong>
                     </div>
                 </div>
                 <button class="modal-btn" id="solicitarBtn">
-                    💬 Solicitar Pedido no WhatsApp
+                    💬 SOLICITAR PEDIDO NO WhatsApp
                 </button>
             </div>
         </div>
@@ -695,25 +810,53 @@
                             </svg>
                         </div>
                         <div class="overlay-text">Vídeo completo!</div>
-                        <div class="overlay-sub">Role para baixo e garanta seu registro</div>
-                        <button class="overlay-btn" id="overlayBtn">GARANTIR MEU REGISTRO</button>
+                        <div class="overlay-sub">Siga os passos abaixo para receber sua aplicação</div>
+                        <button class="overlay-btn" id="overlayBtn">REGISTRAR AGORA</button>
                     </div>
                 </div>
             </div>
 
             <div class="content">
+                <!-- BOTÃO DE REGISTRO - LOGO ABAIXO DO VÍDEO -->
+                <button class="btn-primary" id="registerButton">
+                    📝 REGISTRAR AGORA
+                </button>
+
                 <div class="feature-badge">
-                    ACESSO EXCLUSIVO
+                    🎯 APLICAÇÃO 100% GRÁTIS
                 </div>
                 
                 <h1>
-                    Registro prioritário<br>aberto por tempo limitado
+                    Receba sua aplicação<br>após o primeiro depósito
                 </h1>
                 
                 <p class="description">
-                    Complete seu cadastro abaixo e tenha acesso imediato a estrategia completo. 
-                    Primeiros registros recebem benefícios adicionais.
+                    Siga os passos abaixo corretamente e receba sua aplicação exclusiva totalmente grátis!
                 </p>
+
+                <!-- INSTRUÇÕES CLARAS -->
+                <div class="instructions-box">
+                    <div class="instructions-title">📌 COMO RECEBER SUA APLICAÇÃO GRÁTIS:</div>
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-text">Assista ao <strong>vídeo completo</strong> acima</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-text">Clique em <strong>"REGISTRAR AGORA"</strong> e crie sua conta</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-text">Faça um <strong>depósito mínimo de 100 MT</strong></div>
+                    </div>
+                    <div class="highlight-deposit">
+                        <span>💰 DEPÓSITO MÍNIMO: 100 MT</span>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-text">Clique no botão <strong style="color:#25D366">"💬 SOLICITAR PEDIDO NO WhatsApp"</strong> abaixo</div>
+                    </div>
+                </div>
 
                 <div class="video-locked-banner" id="lockedBanner">
                     <div class="banner-icon">
@@ -723,50 +866,13 @@
                         </svg>
                     </div>
                     <div class="banner-text">
-                        <strong>✔ Você completou o vídeo!</strong> — Clique no botão abaixo para garantir seu registro
+                        <strong>✔ Vídeo completo!</strong> — Clique no botão REGISTRAR AGORA acima
                     </div>
                 </div>
 
-                <div class="benefits-grid">
-                    <div class="benefit-item">
-                        <div class="benefit-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6B7FFF" stroke-width="2">
-                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                                <polyline points="22 4 12 14.01 9 11.01"/>
-                            </svg>
-                        </div>
-                        <div class="benefit-text">
-                            <div class="benefit-title">Acesso vitalício</div>
-                            <div class="benefit-sub">plataforma disponível 24/7</div>
-                        </div>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6B7FFF" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/>
-                                <path d="M12 6v6l4 2"/>
-                            </svg>
-                        </div>
-                        <div class="benefit-text">
-                            <div class="benefit-title">Sem custos</div>
-                            <div class="benefit-sub">Registro 100% gratuito</div>
-                        </div>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6B7FFF" stroke-width="2">
-                                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
-                            </svg>
-                        </div>
-                        <div class="benefit-text">
-                            <div class="benefit-title">Bônus exclusivo 500%</div>
-                            <div class="benefit-sub">NO primeiros deposito</div>
-                        </div>
-                    </div>
-                </div>
-
-                <button class="btn-primary" id="registerButton">
-                    GARANTIR MEU REGISTRO
+                <!-- BOTÃO DO WHATSAPP -->
+                <button class="btn-whatsapp" id="whatsappButton">
+                    💬 SOLICITAR PEDIDO NO WhatsApp
                 </button>
 
                 <div class="stats-container">
@@ -778,7 +884,7 @@
                         <div class="divider-vertical"></div>
                         <div class="stat">
                             <div class="stat-value">2.8k</div>
-                            <div class="stat-label">registrados hoje</div>
+                            <div class="stat-label">já receberam</div>
                         </div>
                         <div class="divider-vertical"></div>
                         <div class="stat">
@@ -795,15 +901,15 @@
                 <div class="trust-badges">
                     <div class="trust-item">
                         <div class="trust-dot"></div>
-                        <span>+20 FREE bets</span>
+                        <span>Aplicação Grátis</span>
                     </div>
                     <div class="trust-item">
                         <div class="trust-dot"></div>
-                        <span>Confirmação instantânea</span>
+                        <span>Depósito 100 MT</span>
                     </div>
                     <div class="trust-item">
                         <div class="trust-dot"></div>
-                        <span>Estrategia for free</span>
+                        <span>Suporte 24h</span>
                     </div>
                 </div>
             </div>
@@ -821,76 +927,80 @@
             const solicitarBtn = document.getElementById('solicitarBtn');
             const closeModalBtn = document.getElementById('closeModalBtn');
             
-            // Mostra o modal após 3 segundos
             setTimeout(() => {
                 modal.classList.add('active');
                 document.body.classList.add('modal-active');
                 console.log('📢 Modal apareceu após 3 segundos');
             }, 3000);
             
-            // Função para fechar o modal
             function closeModal() {
                 modal.classList.remove('active');
                 document.body.classList.remove('modal-active');
                 console.log('❌ Modal fechado');
             }
             
-            // Botão X - fecha o modal
             closeModalBtn.addEventListener('click', function() {
                 closeModal();
             });
             
-            // Botão "Solicitar Pedido" - abre WhatsApp e fecha modal
             solicitarBtn.addEventListener('click', function() {
-                // Feedback visual
                 solicitarBtn.style.transform = 'scale(0.97)';
                 setTimeout(() => {
                     solicitarBtn.style.transform = '';
                 }, 150);
                 
-                // Abre o link do WhatsApp em nova aba
                 window.open(WHATSAPP_LINK, '_blank');
                 
-                // Fecha o modal após 1 segundo
                 setTimeout(() => {
                     closeModal();
-                    console.log('✅ Modal fechado - Abrindo WhatsApp para solicitar pedido');
-                }, 1000);
+                    console.log('✅ Modal fechado - Abrindo WhatsApp');
+                }, 500);
             });
             
-            // ================= VÍDEO =================
+            // ================= VÍDEO - BLOQUEIA APENAS QUANDO TERMINAR =================
             const video = document.getElementById('promoVideo');
             const registerBtn = document.getElementById('registerButton');
+            const whatsappBtn = document.getElementById('whatsappButton');
             const videoOverlay = document.getElementById('videoOverlay');
             const lockedBanner = document.getElementById('lockedBanner');
             const overlayBtn = document.getElementById('overlayBtn');
             
-            const TARGET_TIME = 78; // 1:18 em segundos
-            let videoLocked = false;
+            let videoEnded = false;
             
             if (video) {
                 video.load();
                 video.setAttribute('playsinline', 'true');
                 
-                video.addEventListener('timeupdate', function() {
-                    if (!videoLocked && video.currentTime >= TARGET_TIME) {
-                        videoLocked = true;
-                        video.pause();
+                // EVENTO: Quando o vídeo chega ao fim (termina completamente)
+                video.addEventListener('ended', function() {
+                    if (!videoEnded) {
+                        videoEnded = true;
                         
+                        // Mostra o overlay
                         videoOverlay.classList.add('active');
                         lockedBanner.classList.add('active');
-                        registerBtn.classList.add('highlight');
                         
+                        // Adiciona efeito de pulsação FORTE no botão de registro
+                        registerBtn.classList.add('pulsar-forte');
+                        
+                        // Adiciona efeito de destaque no botão WhatsApp
+                        whatsappBtn.classList.add('highlight');
+                        
+                        // Scroll suave até o botão
                         setTimeout(() => {
                             registerBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
                         }, 300);
                         
+                        // Mantém a pulsação por 10 segundos
                         setTimeout(() => {
-                            registerBtn.classList.remove('highlight');
+                            registerBtn.classList.remove('pulsar-forte');
+                            whatsappBtn.classList.remove('highlight');
+                            // Mantém um brilho sutil
                             registerBtn.style.boxShadow = '0 0 0 2px rgba(107, 127, 255, 0.5), 0 8px 30px rgba(75, 59, 255, 0.6)';
-                        }, 3000);
+                            whatsappBtn.style.boxShadow = '0 0 0 2px rgba(37, 211, 102, 0.5), 0 8px 30px rgba(37, 211, 102, 0.6)';
+                        }, 10000);
                         
-                        console.log('🎬 Vídeo travado em 1:18');
+                        console.log('🎬 Vídeo terminou completamente - Botão REGISTRAR com pulsação forte!');
                     }
                 });
                 
@@ -919,6 +1029,17 @@
                     handleRegistration(new Event('click'));
                 });
             }
+            
+            // ================= FUNÇÃO DO WHATSAPP =================
+            function handleWhatsApp(event) {
+                event.preventDefault();
+                whatsappBtn.style.transform = 'scale(0.97)';
+                setTimeout(() => { whatsappBtn.style.transform = ''; }, 150);
+                console.log('💬 Abrindo WhatsApp:', WHATSAPP_LINK);
+                window.open(WHATSAPP_LINK, '_blank');
+            }
+            
+            whatsappBtn.addEventListener('click', handleWhatsApp);
             
             // ================= TIMER =================
             let remainingSeconds = 15 * 60;
